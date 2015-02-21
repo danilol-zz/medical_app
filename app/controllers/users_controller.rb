@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.order(:profile, :name, :role)
+    @users = User.order(:name, :role)
     @new_user = User.new
     respond_to do |format|
       format.html
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         @user.reload
         @user.save
-        format.html { redirect_to "/origins", notice: 'Sua senha foi alterada!' }
+        format.html { redirect_to root_path, notice: 'Sua senha foi alterada!' }
       else
         format.html { render action: "password", notice: 'Suas senhas não conferem!' }
       end
@@ -121,6 +121,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :name, :profile, :password, :password_confirmation, :role)
+    params.require(:user).permit(:email, :name, :password, :password_confirmation, :role)
   end
 end

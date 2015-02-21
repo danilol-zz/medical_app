@@ -4,10 +4,7 @@ class User < ActiveRecord::Base
   validates :email,    :presence =>true, :uniqueness=>true
   validates :email,     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :name,     :presence =>true, :uniqueness=>true
-  validates :profile,  :presence =>true
   validates :password, :presence =>true, :length => { :minimum => 5, :maximum => 40 }, :confirmation => true
-
-  PROFILES = [ Constants::STATUS[:SALA1], Constants::STATUS[:SALA2] ]
 
   def self.md5(text)
     Digest::MD5.hexdigest(text)
@@ -26,20 +23,6 @@ class User < ActiveRecord::Base
 
   def admin?
     self.role == 'admin'
-  end
-
-  def room1?
-    self.profile == Constants::STATUS[:SALA1]
-  end
-
-  def room2?
-    self.profile == Constants::STATUS[:SALA2]
-  end
-
-  def can_access?(obj)
-    return true if self.room1? && (obj.new_record? || obj.status == Constants::STATUS[:SALA1])
-    return true if self.room1? && obj.status == Constants::STATUS[:PRODUCAO]
-    return true if self.room2? && obj.status == Constants::STATUS[:SALA2]
   end
 
   private

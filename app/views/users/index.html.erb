@@ -23,7 +23,6 @@
             <% end %>
             </td>
             <td><%= user.email %></td>
-            <td><%= user.profile %></td>
             <td><%= user.role %></td>
             <% if @current_user.admin? %>
               <td><%= link_to t("reset_password"), controller: "users", action: "remember_password_index", id: user.id %>

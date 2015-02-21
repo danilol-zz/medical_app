@@ -34,7 +34,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'capybara-page-object'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
   gem 'selenium'
   gem 'selenium-webdriver'
   gem 'headless'
