@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :specializations
+
+  resources :medical_consultations
+
   resources :doctors
 
   root 'welcome#index'

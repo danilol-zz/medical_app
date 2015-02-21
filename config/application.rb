@@ -28,7 +28,7 @@ module MedicalApp
     config.i18n.default_locale = :pt
 
     config.generators do |g|
-      g.test_framework      :rspec, fixtures: true, view_specs: false
+      g.test_framework      :rspec, fixtures: true, view_specs: false, request_specs: false
       g.fixture_replacement :factory_girl, dir: "spec/factories"
       g.integration_tool    :rspec, fixture: true, views: true
     end

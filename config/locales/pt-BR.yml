@@ -1,4 +1,9 @@
 pt:
+  date:
+    order:
+      - "day"
+      - "month"
+      - "year"
   will_paginate:
     previous_label: Anterior
     next_label: Próxima
