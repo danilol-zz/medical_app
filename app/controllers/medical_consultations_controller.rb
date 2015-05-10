@@ -1,5 +1,5 @@
 class MedicalConsultationsController < ApplicationController
-  before_action :set_medical_consultation, only: [:show, :edit, :update, :destroy]
+  before_action :set_medical_consultation, only: [:edit, :update, :destroy]
 
   # GET /medical_consultations
   # GET /medical_consultations.json
@@ -7,14 +7,10 @@ class MedicalConsultationsController < ApplicationController
     @medical_consultations = MedicalConsultation.all
   end
 
-  # GET /medical_consultations/1
-  # GET /medical_consultations/1.json
-  def show
-  end
-
   # GET /medical_consultations/new
   def new
     @medical_consultation = MedicalConsultation.new
+    @doctors = Doctor.all.order(:name)
   end
 
   # GET /medical_consultations/1/edit
@@ -28,11 +24,9 @@ class MedicalConsultationsController < ApplicationController
 
     respond_to do |format|
       if @medical_consultation.save
-        format.html { redirect_to @medical_consultation, notice: 'Medical consultation was successfully created.' }
-        format.json { render :show, status: :created, location: @medical_consultation }
+        format.html { redirect_to medical_consultations_path, notice: 'Medical consultation was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @medical_consultation.errors, status: :unprocessable_entity }
       end
     end
   end

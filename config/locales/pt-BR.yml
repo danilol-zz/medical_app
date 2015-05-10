@@ -35,6 +35,14 @@ pt:
         password: Senha
         password_confirmation: Confirmação de senha
         role: Tipo
+      medical_consultation:
+        doctor_id: Médico
+        date: Data da Consulta
+        syntoms: Sintomas
+        reason: Motivo
+        medical_opinion: Opinião Médica
+        prescription: Receita
+        ordered_tests: Exames Solicitados
     errors:
       messages:
         record_invalid: Registro inválido
@@ -43,10 +51,13 @@ pt:
           attributes:
             name:
               blank: não pode ser vazio!
+              taken: já existe!
             email:
               blank: não pode ser vazio!
+              taken: já existe!
             crm_number:
               blank: não pode ser vazio!
+              taken: já existe!
         user:
           attributes:
             password:

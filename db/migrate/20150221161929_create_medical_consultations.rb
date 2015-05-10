@@ -4,7 +4,6 @@ class CreateMedicalConsultations < ActiveRecord::Migration
       t.integer :doctor_id
       t.datetime :date
       t.text :syntoms
-      t.integer :specialization_id
       t.text :reason
       t.text :medical_opinion
       t.text :prescription

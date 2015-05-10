@@ -6,7 +6,6 @@ RSpec.describe MedicalConsultation, :type => :model do
 
     it { expect(subject).to validate_presence_of(:date) }
     it { expect(subject).to validate_presence_of(:doctor_id) }
-    it { expect(subject).to validate_presence_of(:specialization_id) }
     it { expect(subject).to validate_presence_of(:prescription) }
   end
 end

@@ -16,6 +16,10 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :specialization %><br>
+    <%= f.select :specialization_ids, Specialization.all.collect {|x| [x.description, x.id]}, {}, { multiple: true} %>
+  </div>
+  <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>

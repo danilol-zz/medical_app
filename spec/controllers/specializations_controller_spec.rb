@@ -19,14 +19,6 @@ RSpec.describe SpecializationsController, :type => :controller do
     end
   end
 
-  describe "GET show" do
-    it "assigns the requested specialization as @specialization" do
-      specialization = Specialization.create! valid_attributes
-      get :show, {:id => specialization.to_param}, valid_session
-      expect(assigns(:specialization)).to eq(specialization)
-    end
-  end
-
   describe "GET new" do
     it "assigns a new specialization as @specialization" do
       get :new, {}, valid_session

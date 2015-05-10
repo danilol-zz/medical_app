@@ -14,11 +14,13 @@ class DoctorsController < ApplicationController
 
   # GET /doctors/new
   def new
+    @specializations = Specialization.all.map(&:description)
     @doctor = Doctor.new
   end
 
   # GET /doctors/1/edit
   def edit
+    @specializations = Specialization.all
   end
 
   # POST /doctors

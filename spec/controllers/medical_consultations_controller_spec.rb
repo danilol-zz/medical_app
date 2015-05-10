@@ -17,18 +17,13 @@ RSpec.describe MedicalConsultationsController, :type => :controller do
     end
   end
 
-  describe "GET show" do
-    it "assigns the requested medical_consultation as @medical_consultation" do
-      medical_consultation = MedicalConsultation.create! valid_attributes
-      get :show, {:id => medical_consultation.to_param}, valid_session
-      expect(assigns(:medical_consultation)).to eq(medical_consultation)
-    end
-  end
-
   describe "GET new" do
     it "assigns a new medical_consultation as @medical_consultation" do
+      doctor1 = FactoryGirl.create(:doctor, name: 'x doctor', crm_number: '123', email: 'docx@doc.com')
+      doctor2 = FactoryGirl.create(:doctor, name: 'a doctor', crm_number: '234', email: 'doca@doc.com')
       get :new, {}, valid_session
       expect(assigns(:medical_consultation)).to be_a_new(MedicalConsultation)
+      expect(assigns(:doctors)).to eq([doctor2, doctor1])
     end
   end
 
@@ -56,7 +51,7 @@ RSpec.describe MedicalConsultationsController, :type => :controller do
 
       it "redirects to the created medical_consultation" do
         post :create, {:medical_consultation => valid_attributes}, valid_session
-        expect(response).to redirect_to(MedicalConsultation.last)
+        expect(response).to redirect_to(medical_consultations_path)
       end
     end
 
