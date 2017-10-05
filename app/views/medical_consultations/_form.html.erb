@@ -18,6 +18,8 @@
   <div class="field">
     <%= f.label :date %><br>
     <%= f.text_field :date, id: "datepicker" %>
+    <%= f.text_field :date, class: "input-medium date", readonly: true %>
+    <button class="btn_start_at btn" type="button"><span class="icon-calendar"></span></button>
   </div>
   <div class="field">
     <%= f.label :reason %><br>
